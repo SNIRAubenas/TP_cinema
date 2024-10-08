@@ -1,6 +1,7 @@
 using CinemaLib;
 using ConsoleApp1;
-
+using System;
+using System.Windows.Forms;
 namespace Application_Cinema
 
 {
