@@ -6,5 +6,15 @@ namespace Application_Cinema
         {
             InitializeComponent();
         }
+
+        private void ouvrirFilmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void creerFilmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
