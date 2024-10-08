@@ -36,5 +36,10 @@ namespace Application_Cinema
         {
 
         }
+
+        private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

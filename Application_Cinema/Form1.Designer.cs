@@ -32,6 +32,7 @@
             Menu_Film = new ToolStripMenuItem();
             ouvrirFilmToolStripMenuItem = new ToolStripMenuItem();
             creerFilmToolStripMenuItem = new ToolStripMenuItem();
+            quitterToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -46,7 +47,7 @@
             // 
             // Menu_Film
             // 
-            Menu_Film.DropDownItems.AddRange(new ToolStripItem[] { ouvrirFilmToolStripMenuItem, creerFilmToolStripMenuItem });
+            Menu_Film.DropDownItems.AddRange(new ToolStripItem[] { ouvrirFilmToolStripMenuItem, creerFilmToolStripMenuItem, quitterToolStripMenuItem });
             Menu_Film.Name = "Menu_Film";
             Menu_Film.Size = new Size(76, 20);
             Menu_Film.Text = "Menu Film";
@@ -64,6 +65,13 @@
             creerFilmToolStripMenuItem.Size = new Size(180, 22);
             creerFilmToolStripMenuItem.Text = "Creer Film";
             creerFilmToolStripMenuItem.Click += creerFilmToolStripMenuItem_Click;
+            // 
+            // quitterToolStripMenuItem
+            // 
+            quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
+            quitterToolStripMenuItem.Size = new Size(180, 22);
+            quitterToolStripMenuItem.Text = "Quitter";
+            quitterToolStripMenuItem.Click += quitterToolStripMenuItem_Click;
             // 
             // Form1
             // 
@@ -86,5 +94,6 @@
         private ToolStripMenuItem Menu_Film;
         private ToolStripMenuItem ouvrirFilmToolStripMenuItem;
         private ToolStripMenuItem creerFilmToolStripMenuItem;
+        private ToolStripMenuItem quitterToolStripMenuItem;
     }
 }

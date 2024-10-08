@@ -34,6 +34,7 @@
             directeurToolStripMenuItem = new ToolStripMenuItem();
             nouvelleActeurToolStripMenuItem = new ToolStripMenuItem();
             nouveauDirecteurToolStripMenuItem = new ToolStripMenuItem();
+            quitterToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -48,7 +49,7 @@
             // 
             // acteurToolStripMenuItem
             // 
-            acteurToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { acteurToolStripMenuItem1, directeurToolStripMenuItem, nouvelleActeurToolStripMenuItem, nouveauDirecteurToolStripMenuItem });
+            acteurToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { acteurToolStripMenuItem1, directeurToolStripMenuItem, nouvelleActeurToolStripMenuItem, nouveauDirecteurToolStripMenuItem, quitterToolStripMenuItem });
             acteurToolStripMenuItem.Name = "acteurToolStripMenuItem";
             acteurToolStripMenuItem.Size = new Size(141, 20);
             acteurToolStripMenuItem.Text = "Menu Acteur/Directeur";
@@ -81,6 +82,13 @@
             nouveauDirecteurToolStripMenuItem.Text = "Nouveau directeur";
             nouveauDirecteurToolStripMenuItem.Click += nouveauDirecteurToolStripMenuItem_Click;
             // 
+            // quitterToolStripMenuItem
+            // 
+            quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
+            quitterToolStripMenuItem.Size = new Size(180, 22);
+            quitterToolStripMenuItem.Text = "Quitter";
+            quitterToolStripMenuItem.Click += quitterToolStripMenuItem_Click;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -104,5 +112,6 @@
         private ToolStripMenuItem directeurToolStripMenuItem;
         private ToolStripMenuItem nouvelleActeurToolStripMenuItem;
         private ToolStripMenuItem nouveauDirecteurToolStripMenuItem;
+        private ToolStripMenuItem quitterToolStripMenuItem;
     }
 }
