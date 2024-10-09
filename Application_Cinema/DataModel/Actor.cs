@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
+using System;
 using System.Collections.Generic;
 
 namespace Application_Cinema.DataModel;
@@ -9,5 +10,5 @@ public partial class Actor
 
     public string Name { get; set; } = null!;
 
-    public virtual ICollection<Filmactor> Filmactors { get; set; } = new List<Filmactor>();
+    public virtual ObservableCollectionListSource<Filmactor> Filmactors{ get; set; } = new ObservableCollectionListSource<Filmactor>(); 
 }
