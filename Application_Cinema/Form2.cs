@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CinemaLib;
-using ConsoleApp1;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Application_Cinema
