@@ -20,12 +20,12 @@ namespace Application_Cinema
         public Form2(FilmAvecSauvegarde films)
         {
             InitializeComponent();
-       
+
         }
-      
+
         private void acteurToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void directeurToolStripMenuItem_Click(object sender, EventArgs e)
@@ -35,7 +35,7 @@ namespace Application_Cinema
 
         private void nouvelleActeurToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void nouveauDirecteurToolStripMenuItem_Click(object sender, EventArgs e)
@@ -46,6 +46,16 @@ namespace Application_Cinema
         private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void filmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nouveauFilmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

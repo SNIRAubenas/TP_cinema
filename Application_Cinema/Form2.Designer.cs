@@ -35,6 +35,8 @@
             nouvelleActeurToolStripMenuItem = new ToolStripMenuItem();
             nouveauDirecteurToolStripMenuItem = new ToolStripMenuItem();
             quitterToolStripMenuItem = new ToolStripMenuItem();
+            filmToolStripMenuItem = new ToolStripMenuItem();
+            nouveauFilmToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -49,7 +51,7 @@
             // 
             // acteurToolStripMenuItem
             // 
-            acteurToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { acteurToolStripMenuItem1, directeurToolStripMenuItem, nouvelleActeurToolStripMenuItem, nouveauDirecteurToolStripMenuItem, quitterToolStripMenuItem });
+            acteurToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { filmToolStripMenuItem, acteurToolStripMenuItem1, directeurToolStripMenuItem, nouveauFilmToolStripMenuItem, nouvelleActeurToolStripMenuItem, nouveauDirecteurToolStripMenuItem, quitterToolStripMenuItem });
             acteurToolStripMenuItem.Name = "acteurToolStripMenuItem";
             acteurToolStripMenuItem.Size = new Size(141, 20);
             acteurToolStripMenuItem.Text = "Menu Acteur/Directeur";
@@ -89,6 +91,20 @@
             quitterToolStripMenuItem.Text = "Quitter";
             quitterToolStripMenuItem.Click += quitterToolStripMenuItem_Click;
             // 
+            // filmToolStripMenuItem
+            // 
+            filmToolStripMenuItem.Name = "filmToolStripMenuItem";
+            filmToolStripMenuItem.Size = new Size(180, 22);
+            filmToolStripMenuItem.Text = "Film";
+            filmToolStripMenuItem.Click += filmToolStripMenuItem_Click;
+            // 
+            // nouveauFilmToolStripMenuItem
+            // 
+            nouveauFilmToolStripMenuItem.Name = "nouveauFilmToolStripMenuItem";
+            nouveauFilmToolStripMenuItem.Size = new Size(180, 22);
+            nouveauFilmToolStripMenuItem.Text = "Nouveau Film";
+            nouveauFilmToolStripMenuItem.Click += nouveauFilmToolStripMenuItem_Click;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -113,5 +129,7 @@
         private ToolStripMenuItem nouvelleActeurToolStripMenuItem;
         private ToolStripMenuItem nouveauDirecteurToolStripMenuItem;
         private ToolStripMenuItem quitterToolStripMenuItem;
+        private ToolStripMenuItem filmToolStripMenuItem;
+        private ToolStripMenuItem nouveauFilmToolStripMenuItem;
     }
 }
