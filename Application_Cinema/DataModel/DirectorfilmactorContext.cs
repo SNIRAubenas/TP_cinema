@@ -27,7 +27,7 @@ public partial class DirectorfilmactorContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseMySQL("server=localhost;database=directorfilmactor;uid=eal;password=azerty123");
+        => optionsBuilder.UseMySQL("server=10.0.0.25;database=bdsg;uid=bdsg;password=cinema24");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
