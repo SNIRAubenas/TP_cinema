@@ -31,11 +31,11 @@
             components = new System.ComponentModel.Container();
             dataGridView1 = new DataGridView();
             actorBindingSource = new BindingSource(components);
-            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ajouterActeur = new Button();
             modifierActeur = new Button();
             supprimerActeur = new Button();
+            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)actorBindingSource).BeginInit();
             SuspendLayout();
@@ -56,18 +56,6 @@
             // 
             actorBindingSource.DataSource = typeof(Actor);
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            idDataGridViewTextBoxColumn.HeaderText = "Id";
-            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
             // ajouterActeur
             // 
             ajouterActeur.Location = new Point(565, 132);
@@ -76,6 +64,7 @@
             ajouterActeur.TabIndex = 1;
             ajouterActeur.Text = "Ajouter";
             ajouterActeur.UseVisualStyleBackColor = true;
+            ajouterActeur.Click += ajouterActeur_Click;
             // 
             // modifierActeur
             // 
@@ -85,6 +74,7 @@
             modifierActeur.TabIndex = 2;
             modifierActeur.Text = "Modifier";
             modifierActeur.UseVisualStyleBackColor = true;
+            modifierActeur.Click += modifierActeur_Click;
             // 
             // supprimerActeur
             // 
@@ -94,6 +84,20 @@
             supprimerActeur.TabIndex = 3;
             supprimerActeur.Text = "Supprimer";
             supprimerActeur.UseVisualStyleBackColor = true;
+            supprimerActeur.Click += supprimerActeur_Click;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            idDataGridViewTextBoxColumn.HeaderText = "Id";
+            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             // 
             // FormActeurs
             // 
@@ -114,11 +118,11 @@
         #endregion
 
         private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private BindingSource actorBindingSource;
         private Button ajouterActeur;
         private Button modifierActeur;
         private Button supprimerActeur;
+        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
     }
 }

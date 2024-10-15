@@ -31,12 +31,11 @@
             components = new System.ComponentModel.Container();
             dataGridView1 = new DataGridView();
             directorBindingSource = new BindingSource(components);
-            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            filmdirectorsDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ajouterDirecteur = new Button();
             modifierDirecteur = new Button();
             supprimerDirecteur = new Button();
+            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)directorBindingSource).BeginInit();
             SuspendLayout();
@@ -46,7 +45,7 @@
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.BackgroundColor = SystemColors.ControlLightLight;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn, filmdirectorsDataGridViewTextBoxColumn });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn });
             dataGridView1.DataSource = directorBindingSource;
             dataGridView1.Location = new Point(12, 60);
             dataGridView1.Name = "dataGridView1";
@@ -57,24 +56,6 @@
             // 
             directorBindingSource.DataSource = typeof(Director);
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            idDataGridViewTextBoxColumn.HeaderText = "Id";
-            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
-            // filmdirectorsDataGridViewTextBoxColumn
-            // 
-            filmdirectorsDataGridViewTextBoxColumn.DataPropertyName = "Filmdirectors";
-            filmdirectorsDataGridViewTextBoxColumn.HeaderText = "Filmdirectors";
-            filmdirectorsDataGridViewTextBoxColumn.Name = "filmdirectorsDataGridViewTextBoxColumn";
-            // 
             // ajouterDirecteur
             // 
             ajouterDirecteur.Location = new Point(627, 97);
@@ -83,6 +64,7 @@
             ajouterDirecteur.TabIndex = 1;
             ajouterDirecteur.Text = "Ajouter";
             ajouterDirecteur.UseVisualStyleBackColor = true;
+            ajouterDirecteur.Click += ajouterDirecteur_Click;
             // 
             // modifierDirecteur
             // 
@@ -92,6 +74,7 @@
             modifierDirecteur.TabIndex = 2;
             modifierDirecteur.Text = "Modifier";
             modifierDirecteur.UseVisualStyleBackColor = true;
+            modifierDirecteur.Click += modifierDirecteur_Click;
             // 
             // supprimerDirecteur
             // 
@@ -101,6 +84,20 @@
             supprimerDirecteur.TabIndex = 3;
             supprimerDirecteur.Text = "Supprimer";
             supprimerDirecteur.UseVisualStyleBackColor = true;
+            supprimerDirecteur.Click += supprimerDirecteur_Click;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            idDataGridViewTextBoxColumn.HeaderText = "Id";
+            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             // 
             // FormDirecteurs
             // 
@@ -121,12 +118,12 @@
         #endregion
 
         private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn filmdirectorsDataGridViewTextBoxColumn;
         private BindingSource directorBindingSource;
         private Button ajouterDirecteur;
         private Button modifierDirecteur;
         private Button supprimerDirecteur;
+        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
     }
 }
