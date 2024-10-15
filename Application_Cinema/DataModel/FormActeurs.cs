@@ -42,7 +42,29 @@ namespace Application_Cinema.DataModel
         }
         private void ajouterActeur_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(Name))
+            {
+                MessageBox.Show("Veuillez remplir tous les champs.");
+                return;
+            }
 
+            string nom = Microsoft.VisualBasic.Interaction.InputBox("Nom de l'acteur :", "Ajouter un Acteur");
+            // Créer une nouvelle instance de directeur
+            var nouvelActeur = new Actor()
+            {
+                Name = nom
+
+            };
+
+
+            // Ajouter le nouveau directeur au contexte
+            this.dbContext.Actors.Add(nouvelActeur);
+
+            // Sauvegarder les changements dans la base de données
+            this.dbContext.SaveChanges();
+
+            // Mettre à jour le DataGridView automatiquement
+            dataGridView1.DataSource = dbContext.Actors.Local.ToBindingList();
         }
 
         private void modifierActeur_Click(object sender, EventArgs e)
