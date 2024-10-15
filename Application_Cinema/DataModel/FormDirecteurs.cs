@@ -18,6 +18,8 @@ namespace Application_Cinema.DataModel
     public partial class FormDirecteurs : Form
     {
         private DirectorfilmactorContext? dbContext;
+
+
         public FormDirecteurs()
         {
             InitializeComponent();
@@ -50,17 +52,19 @@ namespace Application_Cinema.DataModel
                 MessageBox.Show("Veuillez remplir tous les champs.");
                 return;
             }
+          
+                string nom = Microsoft.VisualBasic.Interaction.InputBox("Nom du directeur :", "Ajouter un Directeur");
+                // Créer une nouvelle instance de directeur
+                var nouveauDirecteur = new Director()
+                {
+                    Name = nom
 
-            // Créer une nouvelle instance de directeur
-            var nouveauDirecteur = new Director()
-            {
-                Name = Name
+                };
 
-            };
 
-            // Ajouter le nouveau directeur au contexte
-            this.dbContext.Directors.Add(nouveauDirecteur);
-
+                // Ajouter le nouveau directeur au contexte
+                this.dbContext.Directors.Add(nouveauDirecteur);
+            
             // Sauvegarder les changements dans la base de données
             this.dbContext.SaveChanges();
 
