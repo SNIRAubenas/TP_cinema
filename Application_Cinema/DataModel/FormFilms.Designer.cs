@@ -110,6 +110,7 @@
             acteurDirecteur.TabIndex = 5;
             acteurDirecteur.Text = "Acteur et Directeur";
             acteurDirecteur.UseVisualStyleBackColor = true;
+            acteurDirecteur.Click += acteurDirecteur_Click;
             // 
             // idDataGridViewTextBoxColumn
             // 
