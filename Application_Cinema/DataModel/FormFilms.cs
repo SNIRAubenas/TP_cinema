@@ -41,14 +41,14 @@ namespace Application_Cinema.DataModel
             this.dbContext = null;
         }
 
-        private void ajouter_Click(object sender, EventArgs e)
-        {
+        private void ajouter_Click(object sender, EventArgs e) { 
+       
             string titre = Microsoft.VisualBasic.Interaction.InputBox("Titre du film :", "Ajouter un Film");
             string anneeStr = Microsoft.VisualBasic.Interaction.InputBox("Année de sortie :", "Ajouter un Film");
             string longueurStr = Microsoft.VisualBasic.Interaction.InputBox("Durée du film (format hh:mm) :", "Ajouter un Film");
             string resume = Microsoft.VisualBasic.Interaction.InputBox("Résumé du film :", "Ajouter un Film");
 
-            if (string.IsNullOrWhiteSpace(titre) ||!int.TryParse(anneeStr, out int annee) || !TimeSpan.TryParseExact(longueurStr, @"hh\:mm", null, out TimeSpan longueur) ||  string.IsNullOrWhiteSpace(resume))
+            if (string.IsNullOrWhiteSpace(titre) ||!int.TryParse(anneeStr, out int annee) ||!TimeSpan.TryParseExact(longueurStr, @"hh\:mm", null, out TimeSpan longueur) ||string.IsNullOrWhiteSpace(resume))
             {
                 MessageBox.Show("Veuillez remplir correctement tous les champs.\nAssurez-vous que l'année est un nombre valide et la durée au format hh:mm.");
                 return;
@@ -88,52 +88,53 @@ namespace Application_Cinema.DataModel
 
         private void modifier_Click(object sender, EventArgs e)
         {
-            if (dataGridFilms.CurrentRow == null)
-            {
-                MessageBox.Show("Veuillez sélectionner un film à modifier.");
-                return;
-            }
-
-            var filmSelectionne = (Film)dataGridFilms.CurrentRow.DataBoundItem;
-
-            string nouveauTitre = Microsoft.VisualBasic.Interaction.InputBox("Nouveau titre du film :", "Modifier un Film", filmSelectionne.Title);
-            string nouvelleAnneeStr = Microsoft.VisualBasic.Interaction.InputBox("Nouvelle année de sortie :", "Modifier un Film", filmSelectionne.Year.ToString());
-            string nouvelleLongueurStr = Microsoft.VisualBasic.Interaction.InputBox("Nouvelle durée du film (format hh:mm) :", "Modifier un Film", filmSelectionne.Length.ToString());
-            string nouveauResume = Microsoft.VisualBasic.Interaction.InputBox("Nouveau résumé du film :", "Modifier un Film", filmSelectionne.Summary);
-
-            if (string.IsNullOrWhiteSpace(nouveauTitre) ||!int.TryParse(nouvelleAnneeStr, out int nouvelleAnnee) || !TimeSpan.TryParseExact(nouvelleLongueurStr, @"hh\:mm", null, out TimeSpan nouvelleLongueur) ||string.IsNullOrWhiteSpace(nouveauResume))
-            {
-                MessageBox.Show("Veuillez remplir correctement tous les champs.\nAssurez-vous que l'année est un nombre valide et la durée au format hh:mm.");
-                return;
-            }
-
-            DialogResult result = MessageBox.Show("Souhaitez-vous changer le poster ?", "Modifier le Poster", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
-            {
-                OpenFileDialog openFileDialog = new OpenFileDialog();
-                openFileDialog.Filter = "Fichiers d'image|*.jpg;*.jpeg;*.png;*.bmp";
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
+            
+                if (dataGridFilms.CurrentRow == null)
                 {
-                    using (var stream = new System.IO.MemoryStream())
+                    MessageBox.Show("Veuillez sélectionner un film à modifier.");
+                    return;
+                }
+
+                var filmSelectionne = (Film)dataGridFilms.CurrentRow.DataBoundItem;
+
+                string nouveauTitre = Microsoft.VisualBasic.Interaction.InputBox("Nouveau titre du film :", "Modifier un Film", filmSelectionne.Title);
+                string nouvelleAnneeStr = Microsoft.VisualBasic.Interaction.InputBox("Nouvelle année de sortie :", "Modifier un Film", filmSelectionne.Year.ToString());
+                string nouvelleLongueurStr = Microsoft.VisualBasic.Interaction.InputBox("Nouvelle durée du film (format hh:mm) :", "Modifier un Film", filmSelectionne.Length.ToString());
+                string nouveauResume = Microsoft.VisualBasic.Interaction.InputBox("Nouveau résumé du film :", "Modifier un Film", filmSelectionne.Summary);
+
+                if (string.IsNullOrWhiteSpace(nouveauTitre) ||!int.TryParse(nouvelleAnneeStr, out int nouvelleAnnee) ||!TimeSpan.TryParseExact(nouvelleLongueurStr, @"hh\:mm", null, out TimeSpan nouvelleLongueur) ||  string.IsNullOrWhiteSpace(nouveauResume))
+                {
+                    MessageBox.Show("Veuillez remplir correctement tous les champs.\nAssurez-vous que l'année est un nombre valide et la durée au format hh:mm.");
+                    return;
+                }
+
+                DialogResult result = MessageBox.Show("Souhaitez-vous changer le poster ?", "Modifier le Poster", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    // Ouvrir une boîte de dialogue pour choisir une nouvelle image pour le poster
+                    OpenFileDialog openFileDialog = new OpenFileDialog();
+                    openFileDialog.Filter = "Fichiers d'image|*.jpg;*.jpeg;*.png;*.bmp";
+                    if (openFileDialog.ShowDialog() == DialogResult.OK)
                     {
-                        Image image = Image.FromFile(openFileDialog.FileName);
-                        image.Save(stream, image.RawFormat);
-                        filmSelectionne.Poster = stream.ToArray(); 
+                        using (var stream = new System.IO.MemoryStream())
+                        {
+                            Image image = Image.FromFile(openFileDialog.FileName);
+                            image.Save(stream, image.RawFormat);
+                            filmSelectionne.Poster = stream.ToArray(); // Mettre à jour le poster avec la nouvelle image
+                        }
                     }
                 }
+
+                filmSelectionne.Title = nouveauTitre;
+                filmSelectionne.Year = nouvelleAnnee;
+                filmSelectionne.Length = nouvelleLongueur; 
+                filmSelectionne.Summary = nouveauResume;
+
+                this.dbContext.SaveChanges();
+                dataGridFilms.Refresh();
             }
 
-            filmSelectionne.Title = nouveauTitre;
-            filmSelectionne.Year = nouvelleAnnee;
-            filmSelectionne.Length = nouvelleLongueur; 
-            filmSelectionne.Summary = nouveauResume;
-
-            this.dbContext.SaveChanges();
-
-            dataGridFilms.Refresh();
-        }
-
-        private void supprimer_Click(object sender, EventArgs e)
+            private void supprimer_Click(object sender, EventArgs e)
         {
             if (dataGridFilms.CurrentRow == null)
             {
@@ -157,7 +158,6 @@ namespace Application_Cinema.DataModel
         private void quitterFilm_Click(object sender, EventArgs e)
         {
             Close();
-
         }
     }
 }
