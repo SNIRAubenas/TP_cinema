@@ -107,7 +107,7 @@
             quitterActeur.Name = "quitterActeur";
             quitterActeur.Size = new Size(75, 23);
             quitterActeur.TabIndex = 4;
-            quitterActeur.Text = "button1";
+            quitterActeur.Text = "Quitter";
             quitterActeur.UseVisualStyleBackColor = true;
             quitterActeur.Click += quitterActeur_Click;
             // 

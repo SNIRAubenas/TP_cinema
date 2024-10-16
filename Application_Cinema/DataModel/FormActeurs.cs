@@ -49,7 +49,6 @@ namespace Application_Cinema.DataModel
             }
 
             string nom = Microsoft.VisualBasic.Interaction.InputBox("Nom de l'acteur :", "Ajouter un Acteur");
-            // Créer une nouvelle instance de directeur
             var nouvelActeur = new Actor()
             {
                 Name = nom
@@ -57,24 +56,62 @@ namespace Application_Cinema.DataModel
             };
 
 
-            // Ajouter le nouveau directeur au contexte
             this.dbContext.Actors.Add(nouvelActeur);
-
-            // Sauvegarder les changements dans la base de données
             this.dbContext.SaveChanges();
-
-            // Mettre à jour le DataGridView automatiquement
             dataGridView1.DataSource = dbContext.Actors.Local.ToBindingList();
         }
 
         private void modifierActeur_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                var acteurSelectionne = dataGridView1.SelectedRows[0].DataBoundItem as Actor;
 
+                if (acteurSelectionne != null)
+                {
+                    string nouveauNom = Microsoft.VisualBasic.Interaction.InputBox("Modifier le nom de l'acteur :", "Modifier Acteur", acteurSelectionne.Name);
+
+                    if (!string.IsNullOrWhiteSpace(nouveauNom))
+                    {
+                        acteurSelectionne.Name = nouveauNom;
+
+                        this.dbContext.SaveChanges();
+                        dataGridView1.DataSource = dbContext.Actors.Local.ToBindingList();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Le nom de l'acteur ne peut pas être vide.");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Veuillez sélectionner un acteur à modifier.");
+            }
         }
 
         private void supprimerActeur_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                var acteurSelectionne = dataGridView1.SelectedRows[0].DataBoundItem as Actor;
 
+                if (acteurSelectionne != null)
+                {
+                    DialogResult resultat = MessageBox.Show($"Voulez-vous vraiment supprimer l'acteur {acteurSelectionne.Name} ?","Confirmation de suppression",MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+
+                    if (resultat == DialogResult.Yes)
+                    {
+                        this.dbContext.Actors.Remove(acteurSelectionne);
+                        this.dbContext.SaveChanges();
+                        dataGridView1.DataSource = dbContext.Actors.Local.ToBindingList();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Veuillez sélectionner un acteur à supprimer.");
+            }
         }
 
         private void quitterActeur_Click(object sender, EventArgs e)

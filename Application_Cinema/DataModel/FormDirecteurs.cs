@@ -79,7 +79,31 @@ namespace Application_Cinema.DataModel
 
         private void modifierDirecteur_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                var directeurSelectionne = dataGridView1.SelectedRows[0].DataBoundItem as Director;
 
+                if (directeurSelectionne != null)
+                {
+                    string nouveauNom = Microsoft.VisualBasic.Interaction.InputBox("Modifier le nom du directeur :", "Modifier Directeur", directeurSelectionne.Name);
+
+                    if (!string.IsNullOrWhiteSpace(nouveauNom))
+                    {
+                        directeurSelectionne.Name = nouveauNom;
+
+                        this.dbContext.SaveChanges();
+                        dataGridView1.DataSource = dbContext.Actors.Local.ToBindingList();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Le nom du directeur ne peut pas être vide.");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Veuillez sélectionner un directeur à modifier.");
+            }
         }
 
         private void supprimerDirecteur_Click(object sender, EventArgs e)
