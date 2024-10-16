@@ -37,7 +37,6 @@
             modifierDirecteur = new Button();
             supprimerDirecteur = new Button();
             quitterDirecteur = new Button();
-            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)directorBindingSource).BeginInit();
             SuspendLayout();
@@ -84,7 +83,7 @@
             // 
             // modifierDirecteur
             // 
-            modifierDirecteur.Location = new Point(627, 171);
+            modifierDirecteur.Location = new Point(627, 155);
             modifierDirecteur.Name = "modifierDirecteur";
             modifierDirecteur.Size = new Size(75, 23);
             modifierDirecteur.TabIndex = 2;
@@ -94,7 +93,7 @@
             // 
             // supprimerDirecteur
             // 
-            supprimerDirecteur.Location = new Point(627, 250);
+            supprimerDirecteur.Location = new Point(627, 218);
             supprimerDirecteur.Name = "supprimerDirecteur";
             supprimerDirecteur.Size = new Size(75, 23);
             supprimerDirecteur.TabIndex = 3;
@@ -104,7 +103,7 @@
             // 
             // quitterDirecteur
             // 
-            quitterDirecteur.Location = new Point(627, 389);
+            quitterDirecteur.Location = new Point(627, 359);
             quitterDirecteur.Name = "quitterDirecteur";
             quitterDirecteur.Size = new Size(75, 23);
             quitterDirecteur.TabIndex = 4;
@@ -112,21 +111,11 @@
             quitterDirecteur.UseVisualStyleBackColor = true;
             quitterDirecteur.Click += quitterDirecteur_Click;
             // 
-            // button2
-            // 
-            button2.Location = new Point(578, 31);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 5;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
-            // 
             // FormDirecteurs
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(button2);
             Controls.Add(quitterDirecteur);
             Controls.Add(supprimerDirecteur);
             Controls.Add(modifierDirecteur);
@@ -150,6 +139,5 @@
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private Button quitterDirecteur;
-        private Button button2;
     }
 }

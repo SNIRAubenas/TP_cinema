@@ -108,7 +108,26 @@ namespace Application_Cinema.DataModel
 
         private void supprimerDirecteur_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                var directeurSelectionne = dataGridView1.SelectedRows[0].DataBoundItem as Director;
 
+                if (directeurSelectionne != null)
+                {
+                    DialogResult resultat = MessageBox.Show($"Voulez-vous vraiment supprimer l'acteur {directeurSelectionne.Name} ?", "Confirmation de suppression", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                    if (resultat == DialogResult.Yes)
+                    {
+                        this.dbContext.Directors.Remove(directeurSelectionne);
+                        this.dbContext.SaveChanges();
+                        dataGridView1.DataSource = dbContext.Actors.Local.ToBindingList();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Veuillez sélectionner un directeur à supprimer.");
+            }
         }
 
         private void quitterDirecteur_Click(object sender, EventArgs e)
