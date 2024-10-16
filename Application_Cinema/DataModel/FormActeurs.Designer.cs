@@ -37,6 +37,7 @@
             modifierActeur = new Button();
             supprimerActeur = new Button();
             quitterActeur = new Button();
+            filmActeur = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)actorBindingSource).BeginInit();
             SuspendLayout();
@@ -103,7 +104,7 @@
             // 
             // quitterActeur
             // 
-            quitterActeur.Location = new Point(565, 335);
+            quitterActeur.Location = new Point(565, 360);
             quitterActeur.Name = "quitterActeur";
             quitterActeur.Size = new Size(75, 23);
             quitterActeur.TabIndex = 4;
@@ -111,11 +112,21 @@
             quitterActeur.UseVisualStyleBackColor = true;
             quitterActeur.Click += quitterActeur_Click;
             // 
+            // filmActeur
+            // 
+            filmActeur.Location = new Point(565, 306);
+            filmActeur.Name = "filmActeur";
+            filmActeur.Size = new Size(75, 23);
+            filmActeur.TabIndex = 5;
+            filmActeur.Text = "Film";
+            filmActeur.UseVisualStyleBackColor = true;
+            // 
             // FormActeurs
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(filmActeur);
             Controls.Add(quitterActeur);
             Controls.Add(supprimerActeur);
             Controls.Add(modifierActeur);
@@ -138,5 +149,6 @@
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private Button quitterActeur;
+        private Button filmActeur;
     }
 }

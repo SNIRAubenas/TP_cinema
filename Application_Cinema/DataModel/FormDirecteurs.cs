@@ -135,5 +135,10 @@ namespace Application_Cinema.DataModel
             Close();
 
         }
+
+        private void acteurFilm_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

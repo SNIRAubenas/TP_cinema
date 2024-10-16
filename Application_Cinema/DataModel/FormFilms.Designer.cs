@@ -30,17 +30,18 @@
         {
             components = new System.ComponentModel.Container();
             dataGridFilms = new DataGridView();
+            filmBindingSource = new BindingSource(components);
+            ajouterFilm = new Button();
+            modifierFilm = new Button();
+            supprimerFilm = new Button();
+            quitterFilm = new Button();
+            acteurDirecteur = new Button();
             idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             titleDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             yearDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             lengthDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             summaryDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             posterDataGridViewImageColumn = new DataGridViewImageColumn();
-            filmBindingSource = new BindingSource(components);
-            ajouterFilm = new Button();
-            modifierFilm = new Button();
-            supprimerFilm = new Button();
-            quitterFilm = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridFilms).BeginInit();
             ((System.ComponentModel.ISupportInitialize)filmBindingSource).BeginInit();
             SuspendLayout();
@@ -54,45 +55,8 @@
             dataGridFilms.DataSource = filmBindingSource;
             dataGridFilms.Location = new Point(12, 12);
             dataGridFilms.Name = "dataGridFilms";
-            dataGridFilms.Size = new Size(1068, 544);
+            dataGridFilms.Size = new Size(1070, 544);
             dataGridFilms.TabIndex = 0;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            idDataGridViewTextBoxColumn.HeaderText = "Id";
-            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // titleDataGridViewTextBoxColumn
-            // 
-            titleDataGridViewTextBoxColumn.DataPropertyName = "Title";
-            titleDataGridViewTextBoxColumn.HeaderText = "Title";
-            titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
-            // 
-            // yearDataGridViewTextBoxColumn
-            // 
-            yearDataGridViewTextBoxColumn.DataPropertyName = "Year";
-            yearDataGridViewTextBoxColumn.HeaderText = "Year";
-            yearDataGridViewTextBoxColumn.Name = "yearDataGridViewTextBoxColumn";
-            // 
-            // lengthDataGridViewTextBoxColumn
-            // 
-            lengthDataGridViewTextBoxColumn.DataPropertyName = "Length";
-            lengthDataGridViewTextBoxColumn.HeaderText = "Length";
-            lengthDataGridViewTextBoxColumn.Name = "lengthDataGridViewTextBoxColumn";
-            // 
-            // summaryDataGridViewTextBoxColumn
-            // 
-            summaryDataGridViewTextBoxColumn.DataPropertyName = "Summary";
-            summaryDataGridViewTextBoxColumn.HeaderText = "Summary";
-            summaryDataGridViewTextBoxColumn.Name = "summaryDataGridViewTextBoxColumn";
-            // 
-            // posterDataGridViewImageColumn
-            // 
-            posterDataGridViewImageColumn.DataPropertyName = "Poster";
-            posterDataGridViewImageColumn.HeaderText = "Poster";
-            posterDataGridViewImageColumn.Name = "posterDataGridViewImageColumn";
             // 
             // filmBindingSource
             // 
@@ -110,7 +74,7 @@
             // 
             // modifierFilm
             // 
-            modifierFilm.Location = new Point(1086, 192);
+            modifierFilm.Location = new Point(1086, 157);
             modifierFilm.Name = "modifierFilm";
             modifierFilm.Size = new Size(75, 23);
             modifierFilm.TabIndex = 2;
@@ -120,7 +84,7 @@
             // 
             // supprimerFilm
             // 
-            supprimerFilm.Location = new Point(1086, 261);
+            supprimerFilm.Location = new Point(1086, 227);
             supprimerFilm.Name = "supprimerFilm";
             supprimerFilm.Size = new Size(75, 23);
             supprimerFilm.TabIndex = 3;
@@ -130,7 +94,7 @@
             // 
             // quitterFilm
             // 
-            quitterFilm.Location = new Point(1086, 338);
+            quitterFilm.Location = new Point(1086, 443);
             quitterFilm.Name = "quitterFilm";
             quitterFilm.Size = new Size(75, 23);
             quitterFilm.TabIndex = 4;
@@ -138,11 +102,63 @@
             quitterFilm.UseVisualStyleBackColor = true;
             quitterFilm.Click += quitterFilm_Click;
             // 
+            // acteurDirecteur
+            // 
+            acteurDirecteur.Location = new Point(1086, 313);
+            acteurDirecteur.Name = "acteurDirecteur";
+            acteurDirecteur.Size = new Size(103, 41);
+            acteurDirecteur.TabIndex = 5;
+            acteurDirecteur.Text = "Acteur et Directeur";
+            acteurDirecteur.UseVisualStyleBackColor = true;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            idDataGridViewTextBoxColumn.HeaderText = "Id";
+            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // titleDataGridViewTextBoxColumn
+            // 
+            titleDataGridViewTextBoxColumn.DataPropertyName = "Title";
+            titleDataGridViewTextBoxColumn.HeaderText = "Title";
+            titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
+            titleDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // yearDataGridViewTextBoxColumn
+            // 
+            yearDataGridViewTextBoxColumn.DataPropertyName = "Year";
+            yearDataGridViewTextBoxColumn.HeaderText = "Year";
+            yearDataGridViewTextBoxColumn.Name = "yearDataGridViewTextBoxColumn";
+            yearDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // lengthDataGridViewTextBoxColumn
+            // 
+            lengthDataGridViewTextBoxColumn.DataPropertyName = "Length";
+            lengthDataGridViewTextBoxColumn.HeaderText = "Length";
+            lengthDataGridViewTextBoxColumn.Name = "lengthDataGridViewTextBoxColumn";
+            lengthDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // summaryDataGridViewTextBoxColumn
+            // 
+            summaryDataGridViewTextBoxColumn.DataPropertyName = "Summary";
+            summaryDataGridViewTextBoxColumn.HeaderText = "Summary";
+            summaryDataGridViewTextBoxColumn.Name = "summaryDataGridViewTextBoxColumn";
+            summaryDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // posterDataGridViewImageColumn
+            // 
+            posterDataGridViewImageColumn.DataPropertyName = "Poster";
+            posterDataGridViewImageColumn.HeaderText = "Poster";
+            posterDataGridViewImageColumn.Name = "posterDataGridViewImageColumn";
+            posterDataGridViewImageColumn.ReadOnly = true;
+            // 
             // FormFilms
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1224, 568);
+            Controls.Add(acteurDirecteur);
             Controls.Add(quitterFilm);
             Controls.Add(supprimerFilm);
             Controls.Add(modifierFilm);
@@ -164,12 +180,13 @@
         private Button ajouterFilm;
         private Button modifierFilm;
         private Button supprimerFilm;
+        private Button quitterFilm;
+        private Button acteurDirecteur;
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn yearDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn lengthDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn summaryDataGridViewTextBoxColumn;
         private DataGridViewImageColumn posterDataGridViewImageColumn;
-        private Button quitterFilm;
     }
 }
