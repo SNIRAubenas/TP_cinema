@@ -29,7 +29,7 @@ namespace Application_Cinema.DataModel
 
             this.dbContext.Database.EnsureCreated();
             this.dbContext.Films.Load();
-            dataGridView1.DataSource = dbContext.Films.Local.ToBindingList();
+            dataGridFilms.DataSource = dbContext.Films.Local.ToBindingList();
 
         }
 
@@ -83,17 +83,75 @@ namespace Application_Cinema.DataModel
 
             this.dbContext.SaveChanges();
 
-            dataGridView1.DataSource = dbContext.Films.Local.ToBindingList();
+            dataGridFilms.DataSource = dbContext.Films.Local.ToBindingList();
         }
 
         private void modifier_Click(object sender, EventArgs e)
         {
+            if (dataGridFilms.CurrentRow == null)
+            {
+                MessageBox.Show("Veuillez sélectionner un film à modifier.");
+                return;
+            }
 
+            var filmSelectionne = (Film)dataGridFilms.CurrentRow.DataBoundItem;
+
+            string nouveauTitre = Microsoft.VisualBasic.Interaction.InputBox("Nouveau titre du film :", "Modifier un Film", filmSelectionne.Title);
+            string nouvelleAnneeStr = Microsoft.VisualBasic.Interaction.InputBox("Nouvelle année de sortie :", "Modifier un Film", filmSelectionne.Year.ToString());
+            string nouvelleLongueurStr = Microsoft.VisualBasic.Interaction.InputBox("Nouvelle durée du film (format hh:mm) :", "Modifier un Film", filmSelectionne.Length.ToString());
+            string nouveauResume = Microsoft.VisualBasic.Interaction.InputBox("Nouveau résumé du film :", "Modifier un Film", filmSelectionne.Summary);
+
+            if (string.IsNullOrWhiteSpace(nouveauTitre) ||!int.TryParse(nouvelleAnneeStr, out int nouvelleAnnee) || !TimeSpan.TryParseExact(nouvelleLongueurStr, @"hh\:mm", null, out TimeSpan nouvelleLongueur) ||string.IsNullOrWhiteSpace(nouveauResume))
+            {
+                MessageBox.Show("Veuillez remplir correctement tous les champs.\nAssurez-vous que l'année est un nombre valide et la durée au format hh:mm.");
+                return;
+            }
+
+            DialogResult result = MessageBox.Show("Souhaitez-vous changer le poster ?", "Modifier le Poster", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "Fichiers d'image|*.jpg;*.jpeg;*.png;*.bmp";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    using (var stream = new System.IO.MemoryStream())
+                    {
+                        Image image = Image.FromFile(openFileDialog.FileName);
+                        image.Save(stream, image.RawFormat);
+                        filmSelectionne.Poster = stream.ToArray(); 
+                    }
+                }
+            }
+
+            filmSelectionne.Title = nouveauTitre;
+            filmSelectionne.Year = nouvelleAnnee;
+            filmSelectionne.Length = nouvelleLongueur; 
+            filmSelectionne.Summary = nouveauResume;
+
+            this.dbContext.SaveChanges();
+
+            dataGridFilms.Refresh();
         }
 
         private void supprimer_Click(object sender, EventArgs e)
         {
+            if (dataGridFilms.CurrentRow == null)
+            {
+                MessageBox.Show("Veuillez sélectionner un film à supprimer.");
+                return;
+            }
 
+            var filmSelectionne = (Film)dataGridFilms.CurrentRow.DataBoundItem;
+
+            DialogResult result = MessageBox.Show($"Êtes-vous sûr de vouloir supprimer le film '{filmSelectionne.Title}' ?", "Confirmer la suppression", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                this.dbContext.Films.Remove(filmSelectionne);
+
+                this.dbContext.SaveChanges();
+
+                dataGridFilms.DataSource = dbContext.Films.Local.ToBindingList();
+            }
         }
 
         private void quitterFilm_Click(object sender, EventArgs e)

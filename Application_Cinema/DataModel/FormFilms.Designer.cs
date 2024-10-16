@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            dataGridView1 = new DataGridView();
+            dataGridFilms = new DataGridView();
             idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             titleDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             yearDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -41,21 +41,21 @@
             modifierFilm = new Button();
             supprimerFilm = new Button();
             quitterFilm = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridFilms).BeginInit();
             ((System.ComponentModel.ISupportInitialize)filmBindingSource).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // dataGridFilms
             // 
-            dataGridView1.AutoGenerateColumns = false;
-            dataGridView1.BackgroundColor = SystemColors.ControlLightLight;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, titleDataGridViewTextBoxColumn, yearDataGridViewTextBoxColumn, lengthDataGridViewTextBoxColumn, summaryDataGridViewTextBoxColumn, posterDataGridViewImageColumn });
-            dataGridView1.DataSource = filmBindingSource;
-            dataGridView1.Location = new Point(12, 12);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(1068, 544);
-            dataGridView1.TabIndex = 0;
+            dataGridFilms.AutoGenerateColumns = false;
+            dataGridFilms.BackgroundColor = SystemColors.ControlLightLight;
+            dataGridFilms.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridFilms.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, titleDataGridViewTextBoxColumn, yearDataGridViewTextBoxColumn, lengthDataGridViewTextBoxColumn, summaryDataGridViewTextBoxColumn, posterDataGridViewImageColumn });
+            dataGridFilms.DataSource = filmBindingSource;
+            dataGridFilms.Location = new Point(12, 12);
+            dataGridFilms.Name = "dataGridFilms";
+            dataGridFilms.Size = new Size(1068, 544);
+            dataGridFilms.TabIndex = 0;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -147,17 +147,17 @@
             Controls.Add(supprimerFilm);
             Controls.Add(modifierFilm);
             Controls.Add(ajouterFilm);
-            Controls.Add(dataGridView1);
+            Controls.Add(dataGridFilms);
             Name = "FormFilms";
             Text = "FormFilms";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridFilms).EndInit();
             ((System.ComponentModel.ISupportInitialize)filmBindingSource).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView dataGridFilms;
         private DataGridViewTextBoxColumn filmactorsDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn filmdirectorsDataGridViewTextBoxColumn;
         private BindingSource filmBindingSource;
