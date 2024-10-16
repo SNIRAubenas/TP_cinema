@@ -30,16 +30,17 @@
         {
             components = new System.ComponentModel.Container();
             dataGridView1 = new DataGridView();
-            filmBindingSource = new BindingSource(components);
-            ajouterFilm = new Button();
-            modifierFilm = new Button();
-            supprimerFilm = new Button();
             idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             titleDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             yearDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             lengthDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             summaryDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             posterDataGridViewImageColumn = new DataGridViewImageColumn();
+            filmBindingSource = new BindingSource(components);
+            ajouterFilm = new Button();
+            modifierFilm = new Button();
+            supprimerFilm = new Button();
+            quitterFilm = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)filmBindingSource).BeginInit();
             SuspendLayout();
@@ -55,40 +56,6 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(1068, 544);
             dataGridView1.TabIndex = 0;
-            // 
-            // filmBindingSource
-            // 
-            filmBindingSource.DataSource = typeof(Film);
-            // 
-            // ajouterFilm
-            // 
-            ajouterFilm.Location = new Point(1086, 76);
-            ajouterFilm.Name = "ajouterFilm";
-            ajouterFilm.Size = new Size(75, 23);
-            ajouterFilm.TabIndex = 1;
-            ajouterFilm.Text = "Ajouter";
-            ajouterFilm.UseVisualStyleBackColor = true;
-            ajouterFilm.Click += ajouter_Click;
-            // 
-            // modifierFilm
-            // 
-            modifierFilm.Location = new Point(1086, 192);
-            modifierFilm.Name = "modifierFilm";
-            modifierFilm.Size = new Size(75, 23);
-            modifierFilm.TabIndex = 2;
-            modifierFilm.Text = "Modifier";
-            modifierFilm.UseVisualStyleBackColor = true;
-            modifierFilm.Click += modifier_Click;
-            // 
-            // supprimerFilm
-            // 
-            supprimerFilm.Location = new Point(1086, 322);
-            supprimerFilm.Name = "supprimerFilm";
-            supprimerFilm.Size = new Size(75, 23);
-            supprimerFilm.TabIndex = 3;
-            supprimerFilm.Text = "Supprimer";
-            supprimerFilm.UseVisualStyleBackColor = true;
-            supprimerFilm.Click += supprimer_Click;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -127,11 +94,56 @@
             posterDataGridViewImageColumn.HeaderText = "Poster";
             posterDataGridViewImageColumn.Name = "posterDataGridViewImageColumn";
             // 
+            // filmBindingSource
+            // 
+            filmBindingSource.DataSource = typeof(Film);
+            // 
+            // ajouterFilm
+            // 
+            ajouterFilm.Location = new Point(1086, 99);
+            ajouterFilm.Name = "ajouterFilm";
+            ajouterFilm.Size = new Size(75, 23);
+            ajouterFilm.TabIndex = 1;
+            ajouterFilm.Text = "Ajouter";
+            ajouterFilm.UseVisualStyleBackColor = true;
+            ajouterFilm.Click += ajouter_Click;
+            // 
+            // modifierFilm
+            // 
+            modifierFilm.Location = new Point(1086, 192);
+            modifierFilm.Name = "modifierFilm";
+            modifierFilm.Size = new Size(75, 23);
+            modifierFilm.TabIndex = 2;
+            modifierFilm.Text = "Modifier";
+            modifierFilm.UseVisualStyleBackColor = true;
+            modifierFilm.Click += modifier_Click;
+            // 
+            // supprimerFilm
+            // 
+            supprimerFilm.Location = new Point(1086, 261);
+            supprimerFilm.Name = "supprimerFilm";
+            supprimerFilm.Size = new Size(75, 23);
+            supprimerFilm.TabIndex = 3;
+            supprimerFilm.Text = "Supprimer";
+            supprimerFilm.UseVisualStyleBackColor = true;
+            supprimerFilm.Click += supprimer_Click;
+            // 
+            // quitterFilm
+            // 
+            quitterFilm.Location = new Point(1086, 338);
+            quitterFilm.Name = "quitterFilm";
+            quitterFilm.Size = new Size(75, 23);
+            quitterFilm.TabIndex = 4;
+            quitterFilm.Text = "Quitter";
+            quitterFilm.UseVisualStyleBackColor = true;
+            quitterFilm.Click += quitterFilm_Click;
+            // 
             // FormFilms
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1224, 568);
+            Controls.Add(quitterFilm);
             Controls.Add(supprimerFilm);
             Controls.Add(modifierFilm);
             Controls.Add(ajouterFilm);
@@ -158,5 +170,6 @@
         private DataGridViewTextBoxColumn lengthDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn summaryDataGridViewTextBoxColumn;
         private DataGridViewImageColumn posterDataGridViewImageColumn;
+        private Button quitterFilm;
     }
 }

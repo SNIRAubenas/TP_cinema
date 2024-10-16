@@ -30,12 +30,13 @@
         {
             components = new System.ComponentModel.Container();
             dataGridView1 = new DataGridView();
+            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             actorBindingSource = new BindingSource(components);
             ajouterActeur = new Button();
             modifierActeur = new Button();
             supprimerActeur = new Button();
-            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            quitterActeur = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)actorBindingSource).BeginInit();
             SuspendLayout();
@@ -51,6 +52,20 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(243, 424);
             dataGridView1.TabIndex = 0;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            idDataGridViewTextBoxColumn.HeaderText = "Id";
+            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // actorBindingSource
             // 
@@ -86,25 +101,22 @@
             supprimerActeur.UseVisualStyleBackColor = true;
             supprimerActeur.Click += supprimerActeur_Click;
             // 
-            // idDataGridViewTextBoxColumn
+            // quitterActeur
             // 
-            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            idDataGridViewTextBoxColumn.HeaderText = "Id";
-            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            nameDataGridViewTextBoxColumn.ReadOnly = true;
+            quitterActeur.Location = new Point(565, 335);
+            quitterActeur.Name = "quitterActeur";
+            quitterActeur.Size = new Size(75, 23);
+            quitterActeur.TabIndex = 4;
+            quitterActeur.Text = "button1";
+            quitterActeur.UseVisualStyleBackColor = true;
+            quitterActeur.Click += quitterActeur_Click;
             // 
             // FormActeurs
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(quitterActeur);
             Controls.Add(supprimerActeur);
             Controls.Add(modifierActeur);
             Controls.Add(ajouterActeur);
@@ -125,5 +137,6 @@
         private Button supprimerActeur;
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private Button quitterActeur;
     }
 }

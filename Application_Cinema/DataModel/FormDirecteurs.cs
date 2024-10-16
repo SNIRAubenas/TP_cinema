@@ -52,19 +52,19 @@ namespace Application_Cinema.DataModel
                 MessageBox.Show("Veuillez remplir tous les champs.");
                 return;
             }
-          
-                string nom = Microsoft.VisualBasic.Interaction.InputBox("Nom du directeur :", "Ajouter un Directeur");
-                // Créer une nouvelle instance de directeur
-                var nouveauDirecteur = new Director()
-                {
-                    Name = nom
 
-                };
+            string nom = Microsoft.VisualBasic.Interaction.InputBox("Nom du directeur :", "Ajouter un Directeur");
+            // Créer une nouvelle instance de directeur
+            var nouveauDirecteur = new Director()
+            {
+                Name = nom
+
+            };
 
 
-                // Ajouter le nouveau directeur au contexte
-                this.dbContext.Directors.Add(nouveauDirecteur);
-            
+            // Ajouter le nouveau directeur au contexte
+            this.dbContext.Directors.Add(nouveauDirecteur);
+
             // Sauvegarder les changements dans la base de données
             this.dbContext.SaveChanges();
 
@@ -84,6 +84,12 @@ namespace Application_Cinema.DataModel
 
         private void supprimerDirecteur_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void quitterDirecteur_Click(object sender, EventArgs e)
+        {
+            Close();
 
         }
     }

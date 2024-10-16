@@ -76,6 +76,11 @@ namespace Application_Cinema.DataModel
         {
 
         }
+
+        private void quitterActeur_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 
 }
